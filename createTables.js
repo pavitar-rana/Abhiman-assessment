@@ -57,8 +57,8 @@ async function createQuestionsTable() {
           question_type ENUM('single', 'multiple') NOT NULL,
           question_text VARCHAR(255) NOT NULL,
           options JSON NOT NULL,
-          created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-          optionVotes JSON NOT NULL,
+          created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          optionVotes JSON NOT NULL
         );
       `);
       console.log("Questions table created.");

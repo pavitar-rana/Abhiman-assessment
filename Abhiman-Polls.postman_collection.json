@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "7dc1a945-2e44-4e7d-a12a-e1485520ba98",
+		"name": "Abhiman-Polls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28073488"
+	},
+	"item": [
+		{
+			"name": "Create poll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pollTitle\": \"Sample Poll222\",\n    \"pollCategory\": \"General\",\n    \"startDate\": \"2023-01-01\",\n    \"endDate\": \"2023-01-31\",\n    \"minReward\": 10,\n    \"maxReward\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/create-poll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create-poll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create question set",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pollId\": 4,\n    \"questionType\": \"multiple\",\n    \"questionText\": \"Sample Question? 22dsfsdfs2\",\n    \"options\": [\n        \"Option A1\",\n        \"Option B2\",\n        \"Option C3\",\n        \"Option D4\"\n    ],\n    \"optionVotes\": [\n        0,\n        0,\n        0,\n        0\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/create-question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create-question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all polls",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update poll",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pollId\": 2,\n    \"maxReward\": 200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/update-poll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"update-poll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update question",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"questionId\": 1,\n    \"questionText\": \"Updated Question Text\",\n    \"options\": [\n        \"Option A1\",\n        \"Option B2\",\n        \"Option C3\"\n    ],\n    \"questionType\": \"multiple\",\n    \"optionVotes\": [\n        1,\n        2,\n        3,\n        4\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/update-question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"update-question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"questionId\": 1,\n    \"questionText\": \"Updated Question Text\",\n    \"options\": [\n        \"Option A1\",\n        \"Option B2\",\n        \"Option C3\"\n    ],\n    \"questionType\": \"multiple\",\n    \"optionVotes\": [\n        1,\n        2,\n        3,\n        4\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/update-question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"update-question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch user poles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user-poll-info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user-poll-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit pols",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"pollId\": 1,\n    \"questionId\": 1,\n    \"selectedOption\": \"Option A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/submit-poll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"submit-poll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Polls analytics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "poll-id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/poll-analytics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"poll-analytics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Poll analytics",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"pollId\": 1,\n    \"questionId\": 1,\n    \"selectedOption\": \"Option A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/submit-poll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"submit-poll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

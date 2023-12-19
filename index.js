@@ -186,18 +186,23 @@ app.get("/all-polls", async (req, res) => {
     // Iterate through each poll and format info
     for (const poll of pollsResult) {
       const pollInfo = {
+        pollId: poll.id,
         pollTitle: poll.poll_title,
         pollCategory: poll.poll_category,
         startDate: poll.start_date,
         endDate: poll.end_date,
-        totalVotes: 0,
+        totalVotes: poll.total_votes,
         numQuestionSets: 0,
         firstQuestion: null,
       };
 
       // Get number of question
-      const questionSets = poll.questions || "[]";
-      pollInfo.numQuestionSets = questionSets.length;
+      const questionSets = poll.questions || [];
+      if (poll.questionSets === null) {
+        pollInfo.numQuestionSets = 0;
+      } else {
+        pollInfo.numQuestionSets = questionSets.length;
+      }
 
       // If there are question then get details of the first question
       if (pollInfo.numQuestionSets > 0) {
@@ -483,7 +488,7 @@ app.get("/user-poll-info", async (req, res) => {
       };
 
       // Get number of question sets
-      const questionSets = poll.questions || "[]";
+      const questionSets = poll.questions || [];
       pollInfo.numQuestionSets = questionSets.length;
 
       // If there are questions, find the first unanswered question
