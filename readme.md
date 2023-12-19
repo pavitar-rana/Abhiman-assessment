@@ -1,6 +1,6 @@
 # Polling System API
 
-This repository contains the source code for a simple polling system API built using Node.js, Express, and MySQL. The API provides endpoints to create polls, questions, submit poll responses, and fetch analytics.
+This repository contains the source code for a polling system API assignemnt for Abhiman Innovation built using Node.js, Express, and MySQL. The API provides endpoints to create polls, questions, submit poll responses, and fetch analytics.
 
 ## Routes
 
