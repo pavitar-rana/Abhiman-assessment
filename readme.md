@@ -127,5 +127,3 @@ of the poll for which analytics are requested.
 2. Set up your MySQL database and update the `.env` file with the database configuration.
 3. Run the application: `npm start`
 4. The application will be accessible at `http://localhost:3000`.
-
-Feel free to explore the API and use it to build a front-end application or integrate it into your projects.
